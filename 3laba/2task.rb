@@ -15,7 +15,7 @@ while true
     puts 'Q (quit)'
     puts " "
 
-    operation = gets.chomp.upcase!
+    operation = gets.chomp.upcase
     case  operation
     when 'D'
         puts 'Deposit amount:'
@@ -23,7 +23,7 @@ while true
         if deposit > 0 
           start += deposit
           File.open('balance.txt','w'){|f| f.write start}
-        else puts 'Deposit must be greater than 0.!Enter a deposit greater than 0!'
+        else 'Deposit must be greater than 0.!Enter a deposit greater than 0!'
         end 
     when 'W'
         puts'Withdrawal amount:'
@@ -31,7 +31,7 @@ while true
         if (withdraw > 0 && withdraw <= start) 
             start -= withdraw
             File.open('balance.txt','w'){|f| f.write start}
-        else puts 'Enter withdrawal amount  grater than 0 and equal to or less than balance !'
+        else 'Enter withdrawal amount  grater than 0 and equal to or less than balance !'
         end
     when 'B'
       puts "Your balance: #{start}"
