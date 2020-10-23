@@ -30,7 +30,7 @@ class CashMachine
       start = file.read.to_i
       file.close
       else puts 'File empty'
-        @start = balance.to_i
+        start = 100.to_i
     end
 
     puts "Select operation action:"
@@ -42,7 +42,7 @@ class CashMachine
 
     operation = gets.chomp.upcase!
     case  operation
-    when 'D'
+    when 'D' 
       deposit
     when 'W'
       withdraw
