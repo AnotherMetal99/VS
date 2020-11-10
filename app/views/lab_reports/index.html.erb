@@ -1,0 +1,45 @@
+<h1 style="text-align:center">
+  Labs reports
+</h1>
+
+<div style=" padding-left: 150px; padding-right: 150px; ">
+  <%= button_to 'Add report', new_lab_report_path,:method => :get, class: 'btn btn-primary ' %>
+
+    <% @lab_report.each do |item|%>
+      <h3>
+        <%= item.title%>
+      </h3>
+      
+      <p>
+        <%= item.description%>
+      </p>
+      
+    
+<% if item.errors.any? %>
+      <% item.errors.full_messages.each do |msg| %>
+        <div class= "center">
+          <%= msg%>
+          </div>
+      <% end %>
+    <% end %>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+    <%if item.mark == nil %>
+      </p><%= button_to 'Add mark', new_lab_report_mark_path(item.id),:method => :get, class: 'btn btn-primary ' %>  
+    <%else%>
+        <%= item.mark.points %>
+        <%= "("%>
+        <%=item.mark.letter %>
+        <%= ")"%>
+    <%end%>
+
+    <%if item.mark == nil%>
+      <%= button_to 'remove', '/', :method => :get, data: { disable_with: 'There is nothing to remove!' }, class: 'btn btn-success' %>
+   <%else%>
+      <%= button_to 'remove', lab_report_mark_path(item.id, item.mark.lab_report_id), :method => 'delete',  data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <%end%>
+    </div>
+  <%end%>
+  
+</div>
+

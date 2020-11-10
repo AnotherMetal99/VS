@@ -1,0 +1,20 @@
+<div style="text-align:center; margin-top: 2%;">
+<h1> 
+<%= @lab_report.title %> 
+</h1>
+
+<p> 
+<%= @lab_report.description %> 
+</p>
+
+<%=  button_to 'Remove',lab_report_path(@lab_report), method: :delete, class:"btn btn-outline-danger", data: { confirm: 'Are you sure?' } %>
+<a class="mp-6 text-dark" href="<%= edit_lab_report_path(@lab_report)%>">
+<i class="fa fa-pencil "></i>
+</a>
+<a class="mp-6 text-dark" href="<%= root_path(@lab_report)%>">
+<i class="fa fa-hashtag "></i>
+</a>
+  </div> 
+  
+  
+  

@@ -1,0 +1,17 @@
+<div style=" padding-left: 850px; padding-right: 100px; padding-bottom: 200px;padding-top: 200px; ">
+  <%= form_for :mark, url: lab_report_marks_path do |f| %>
+    <% if @mark.errors.any? %>
+      <% @mark.errors.full_messages.each do |msg| %>
+        <div class= "form-group ">
+          <%= msg%>
+      <% end %>
+    <% end %>
+    <p >Mark <br>
+      <%= f.text_field :points%>
+    </p>
+    <div style="padding-left: 50px; " >
+      <%= f.submit :Save %>
+      </div>
+  <% end %>
+</div>
+
